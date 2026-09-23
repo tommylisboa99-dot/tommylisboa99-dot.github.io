@@ -21,6 +21,73 @@
       overflow-x: hidden;
     }
 
+    /* PANTALLA DE BIENVENIDA */
+
+    #welcome {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff7fa);
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #welcome.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .welcome-box {
+      max-width: 600px;
+      padding: 45px 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(120, 40, 70, 0.2);
+    }
+
+    .welcome-heart {
+      font-size: 65px;
+      animation: latido 1.5s infinite;
+    }
+
+    .welcome-box h1 {
+      font-size: 38px;
+      color: #c2185b;
+      margin: 15px 0;
+    }
+
+    .welcome-box p {
+      font-size: 21px;
+      line-height: 1.6;
+      color: #7b4055;
+      margin-bottom: 30px;
+    }
+
+    .open-button {
+      border: none;
+      padding: 16px 32px;
+      border-radius: 50px;
+      background: #c2185b;
+      color: white;
+      font-size: 19px;
+      font-family: Georgia, 'Times New Roman', serif;
+      cursor: pointer;
+      box-shadow: 0 7px 18px rgba(194, 24, 91, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .open-button:hover {
+      transform: scale(1.06);
+      box-shadow: 0 10px 25px rgba(194, 24, 91, 0.4);
+    }
+
+
+    /* CONTENIDO ORIGINAL */
+
     .container {
       max-width: 900px;
       margin: auto;
@@ -36,6 +103,7 @@
       0%, 100% {
         transform: scale(1);
       }
+
       50% {
         transform: scale(1.18);
       }
@@ -161,11 +229,51 @@
       .gallery img:last-child {
         grid-column: span 1;
       }
+
+      .welcome-box {
+        padding: 35px 22px;
+      }
+
+      .welcome-box h1 {
+        font-size: 30px;
+      }
+
+      .welcome-box p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+
+  <!-- PANTALLA DE BIENVENIDA -->
+
+  <div id="welcome">
+
+    <div class="welcome-box">
+
+      <div class="welcome-heart">
+        ❤️
+      </div>
+
+      <h1>Para mi monitaa</h1>
+
+      <p>
+        Tengo una pequeña sorpresa para ti jiji ...
+      </p>
+
+      <button class="open-button" onclick="openSurprise()">
+        💌 Abrir mi sorpresa
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- CONTENIDO ORIGINAL -->
 
   <div class="container">
 
@@ -174,7 +282,7 @@
     <h1>Para mi monitaa</h1>
 
     <div class="subtitle">
-      Una pequeña sorpresa para la persona que amo en todo el mundo 
+      Una pequeña sorpresa para la persona que mas amo en todo el mundoo
     </div>
 
 
@@ -185,14 +293,13 @@
       </div>
 
       <p class="message">
-        Quería hacerte algo especial, algo que pudiera guardar
-        algunos de nuestros momentos y recordarte lo mucho que
+        Quería hacerte algo especial, algo que guarde nuestros momentos juntitos y recordarte lo mucho que
         ti amo.
       </p>
 
       <p class="message">
         Gracias por cada momento, cada sonrisa, cada abrazo
-        y por ser tú. ❤️
+        y por ser tan linda conmigo. ❤️
       </p>
 
     </div>
@@ -200,7 +307,7 @@
 
     <div class="card">
 
-      <h2>📸 Los mas yindosss </h2>
+      <h2>📸 Nuestros momentos</h2>
 
       <div class="gallery">
 
@@ -224,7 +331,7 @@
       <h2>🎵 Una canción para ti</h2>
 
       <p class="message">
-        Nuestra cancioncita jijiji ...
+        Nuestra cancionnnnn...
       </p>
 
       <a
@@ -243,7 +350,7 @@
 
       <p class="main-message">
         Te amo hoy, mañana<br>
-        y para el infinitoo.
+        y hasta en el infinitoooo.
       </p>
 
       <p class="message">
@@ -257,10 +364,19 @@
     <div class="footer">
       Hecho con muchísimo amor
       <span class="small-heart">❤️</span>
-      para mi princesita 
+      para el amor de mi viyaa
     </div>
 
   </div>
+
+
+  <!-- FUNCIÓN PARA ABRIR LA SORPRESA -->
+
+  <script>
+    function openSurprise() {
+      document.getElementById("welcome").classList.add("hidden");
+    }
+  </script>
 
 </body>
 </html>
